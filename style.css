@@ -100,3 +100,51 @@ h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1
     .booking-card { position: static; margin-bottom: 30px; }
     .main-photo { height: 250px; }
 }
+/* Forzar ajuste responsivo de la galería y contenedores */
+.gallery-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#main-photo {
+    width: 100%;
+    max-width: 100%;
+}
+
+#main-photo img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.thumbnail-row {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Permite deslizar las miniaturas si no entran */
+    box-sizing: border-box;
+}
+
+.thumbnail-row img {
+    flex-shrink: 0; /* Evita que las miniaturas se deformen */
+}
+
+/* Ajuste para el Grid principal */
+.main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
