@@ -70,11 +70,16 @@ h3 {
 /* =========================================
    4. GALERÍA DE FOTOS (IZQUIERDA)
    ========================================= */
+.content-section {
+    min-width: 0; /* CLAVE: Evita que el contenedor explote la grilla */
+}
+
 .gallery-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 30px;
+    width: 100%;
 }
 
 #main-photo {
@@ -91,13 +96,14 @@ h3 {
 }
 
 .thumbnail-row {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 miniaturas en fila */
+    display: flex;
     gap: 10px;
+    overflow-x: auto; /* Crea una barra de deslizamiento horizontal si hay muchas fotos */
+    padding-bottom: 8px; /* Espacio para que no se corte la barra de scroll */
 }
 
 .thumbnail-row img {
-    width: 100%;
+    min-width: 120px; /* Fija el ancho de cada miniatura */
     height: 80px;
     object-fit: cover;
     border-radius: 8px;
