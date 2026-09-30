@@ -70,23 +70,35 @@ h3 {
 /* =========================================
    4. GALERÍA DE FOTOS (IZQUIERDA)
    ========================================= */
+.main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: start;
+}
+
 .content-section {
-    min-width: 0; /* CLAVE: Evita que el contenedor explote la grilla */
+    min-width: 0; /* Evita que el contenido desborde la grilla */
+    overflow: hidden;
 }
 
 .gallery-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 30px;
     width: 100%;
+    max-width: 100%;
 }
 
 #main-photo {
     width: 100%;
-    height: 400px;
+    height: 420px;
     border-radius: 12px;
     overflow: hidden;
+    background: #000;
 }
 
 #main-photo img {
@@ -98,21 +110,31 @@ h3 {
 .thumbnail-row {
     display: flex;
     gap: 10px;
-    overflow-x: auto; /* Crea una barra de deslizamiento horizontal si hay muchas fotos */
-    padding-bottom: 8px; /* Espacio para que no se corte la barra de scroll */
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 8px;
+    box-sizing: border-box;
 }
 
 .thumbnail-row img {
-    min-width: 120px; /* Fija el ancho de cada miniatura */
-    height: 80px;
+    width: 90px;
+    min-width: 90px;
+    height: 70px;
     object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
+    opacity: 0.7;
     transition: opacity 0.2s;
 }
 
 .thumbnail-row img:hover {
-    opacity: 0.8;
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =========================================
