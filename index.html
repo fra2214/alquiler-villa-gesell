@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departamento en Villa Gesell | A 1 cuadra de la playa</title>
+    <meta name="description" content="Alquiler temporario en Villa Gesell. Dueño directo, a 1 cuadra de la playa.">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- Flatpickr for Calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <span class="badge">Dueño directo</span>
+            <h1 id="prop-title">Cargando...</h1>
+            <h2 id="prop-subtitle">Cargando...</h2>
+        </div>
+    </header>
+
+    <main class="container main-layout">
+        <section class="content-section">
+            <!-- Gallery -->
+            <div class="gallery-container">
+                <div class="main-photo" id="main-photo">
+                    <img src="" alt="Foto principal" id="current-img">
+                </div>
+                <div class="thumbnail-row" id="thumbnail-row"></div>
+            </div>
+
+            <!-- Description -->
+            <div class="description-box">
+                <h3>Descripción</h3>
+                <p id="prop-desc">Cargando descripción...</p>
+            </div>
+
+            <!-- Features -->
+            <div class="features-box">
+                <h3>Características</h3>
+                <div class="features-grid" id="features-grid">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <aside class="booking-section">
+            <div class="booking-card">
+                <div class="price-header">
+                    <span class="price" id="prop-price">USD --</span>
+                    <span class="per-night">por noche</span>
+                </div>
+                
+                <div class="calendar-container">
+                    <label>Seleccioná tus fechas</label>
+                    <input type="text" id="date-picker" placeholder="Entrada - Salida" readonly>
+                </div>
+
+                <div class="calculation-box" id="calc-box" style="display: none;">
+                    <div class="calc-row">
+                        <span id="calc-nights-text">-- noches</span>
+                        <span id="calc-subtotal">USD --</span>
+                    </div>
+                    <div class="calc-row discount-row" id="calc-discount-row" style="display: none;">
+                        <span id="calc-discount-text">Descuento</span>
+                        <span id="calc-discount-amount">- USD --</span>
+                    </div>
+                    <div class="calc-row total-row">
+                        <span>Total</span>
+                        <span id="calc-total">USD --</span>
+                    </div>
+                </div>
+
+                <button id="btn-whatsapp" class="btn-primary" disabled>
+                    Conectar vía WhatsApp
+                    <small>Consultá disponibilidad y reservá</small>
+                </button>
+                <div id="booking-error" class="error-msg"></div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script type="module" src="src/js/public.js"></script>
+</body>
+</html>

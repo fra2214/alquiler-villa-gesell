@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador - Villa Gesell</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <h2>Panel de Control</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit" class="btn-primary">Ingresar</button>
+            </form>
+            <p id="login-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" style="display: none;">
+        <header class="admin-header">
+            <div class="header-content">
+                <div>
+                    <h1>Departamento en Villa Gesell</h1>
+                    <span class="status-badge" id="pub-status">Cargando estado...</span>
+                </div>
+                <div class="header-actions">
+                    <a href="index.html" target="_blank" class="btn-secondary">Ver página pública</a>
+                    <button id="btn-logout" class="btn-text">Cerrar sesión</button>
+                </div>
+            </div>
+        </header>
+
+        <nav class="admin-nav">
+            <button class="nav-btn active" data-target="tab-calendar">Calendario y Reservas</button>
+            <button class="nav-btn" data-target="tab-images">Imágenes</button>
+            <button class="nav-btn" data-target="tab-info">Información y Precios</button>
+        </nav>
+
+        <main class="admin-main">
+            <!-- Tab Calendar & Reservations -->
+            <section id="tab-calendar" class="tab-content active">
+                <div class="admin-grid">
+                    <div class="card">
+                        <h3>Calendario de Disponibilidad</h3>
+                        <div id="admin-calendar"></div>
+                        <div class="mt-4">
+                            <button id="btn-new-reservation" class="btn-primary">Nueva Reserva</button>
+                            <button id="btn-block-dates" class="btn-secondary">Bloquear Fechas</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Reservas</h3>
+                        <div class="table-responsive">
+                            <table class="admin-table" id="reservations-table">
+                                <thead>
+                                    <tr>
+                                        <th>Huésped</th>
+                                        <th>Fechas</th>
+                                        <th>Total</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody><!-- Loaded via JS --></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Images -->
+            <section id="tab-images" class="tab-content" style="display:none;">
+                <div class="card">
+                    <div class="flex-between">
+                        <h3>Imágenes del departamento</h3>
+                        <input type="file" id="file-upload" accept="image/jpeg, image/png, image/webp" multiple style="display:none">
+                        <button id="btn-upload-img" class="btn-primary">Agregar fotos</button>
+                    </div>
+                    <div class="gallery-grid" id="admin-gallery-grid">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Info & Pricing -->
+            <section id="tab-info" class="tab-content" style="display:none;">
+                <div class="card">
+                    <h3>Información General</h3>
+                    <form id="form-info">
+                        <div class="form-group">
+                            <label>Precio por noche (USD)</label>
+                            <input type="number" id="input-price" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp de contacto</label>
+                            <input type="text" id="input-whatsapp" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Título</label>
+                            <input type="text" id="input-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea id="input-desc" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Estado de Publicación</label>
+                            <select id="input-published">
+                                <option value="true">Publicado</option>
+                                <option value="false">No Publicado</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary mt-4">Guardar Cambios</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals will be injected here via JS -->
+    <div id="modal-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script type="module" src="src/js/admin.js"></script>
+</body>
+</html>
